@@ -1,20 +1,21 @@
-const input = document.querySelector('.login_input');
-const button = document.querySelector('.login_button');
+const input = document.querySelector('.login__input');
+const button = document.querySelector('.login__button');
 const form = document.querySelector('.login-form');
 
-function validateInput({target}) {
-    if(target.value.length > 2){
-        button.removeAttribute('disabled');
-        return;
-    } 
+const validateInput = ({ target }) => {
+  if (target.value.length > 2) {
+    button.removeAttribute('disabled');
+    return;
+  }
 
-    button.setAttribute('disabled', '');
+  button.setAttribute('disabled', '');
 }
 
-function handleSubmit(event) {
-    event.preventDefault();
-    localStorage.setItem('player', input.value);
-    window.location = 'pages/game.html';
+const handleSubmit = (event) => {
+  event.preventDefault();
+  
+  localStorage.setItem('player', input.value);
+  window.location = 'pages/game.html';
 }
 
 input.addEventListener('input', validateInput);
